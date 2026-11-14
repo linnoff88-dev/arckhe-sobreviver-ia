@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sobreviver-ia — how to protect yourself over the next 2 years of AI</title>
+<meta name="description" content="A kit of local tools to get through the next 2 years of AI: a 14-day kit, offline AI and Wikipedia, MFA without SMS, a personal eval and a 90-day plan for income and identity.">
+<meta property="og:image" content="https://inematds.github.io/sobreviver-ia/capa/capa.png">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/sobreviver-ia/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/sobreviver-ia/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/sobreviver-ia/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#FACC15; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    --ambfill:#FACC15; --ambsoft:rgba(250,204,21,.13); --old:#55555f;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#a16207; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    --ambfill:#EAB308; --ambsoft:#FEF9C3; --old:#b8bac4;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  body.light .btn:not(.ghost),body.light .step .b{background:#FACC15}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  body.light nav{background:rgba(246,247,249,.85)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:var(--ambsoft)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:900px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:36ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:66ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .card ul{color:var(--mut);font-size:.92rem;margin:.5em 0 0;padding-left:1.1em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#7c7c8a} pre .k{color:#f0c070} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:30px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 108px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+  /* big numbers */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+  @media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .stat b{display:block;font-family:Sora;font-weight:800;font-size:clamp(2rem,4.5vw,2.8rem);line-height:1;color:var(--amb);letter-spacing:-.03em}
+  .stat span{display:block;margin-top:.6em;font-size:.9rem;color:var(--txt)}
+  .stat small{display:block;margin-top:.5em;font-size:.78rem;color:var(--mut)}
+  /* charts */
+  .chart{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 10px;min-width:0}
+  .chart h3{font-size:1rem;margin-bottom:.2em}
+  .chart p.cap{color:var(--mut);font-size:.85rem;margin:.2em 0 .6em}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart svg text{font-family:Inter,sans-serif}
+  .chart .bar{transition:opacity .15s}
+  .chart g.hit:hover .bar{opacity:.8}
+  details.tab{margin-top:6px;font-size:.85rem;color:var(--mut)}
+  details.tab summary{cursor:pointer;padding:6px 0}
+  details.tab table{border-collapse:collapse;width:100%;margin:6px 0 8px}
+  details.tab td,details.tab th{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left}
+  details.tab th{color:var(--txt);font-weight:600}
+  /* timeline of the 3 horizons */
+  .tl{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-top:34px}
+  .tl:before{content:"";position:absolute;left:8px;right:8px;top:12px;height:2px;background:linear-gradient(90deg,var(--ambfill),var(--line))}
+  .tl .card{position:relative}
+  .tl .card:before{content:"";position:absolute;top:-28px;left:20px;width:14px;height:14px;border-radius:50%;background:var(--ambfill);border:3px solid var(--bg)}
+  .tl .when{font-family:Sora;font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amb)}
+  .tl h3{margin:.35em 0 .3em}
+  @media(max-width:820px){.tl{grid-template-columns:1fr;padding-top:0;padding-left:30px}.tl:before{left:8px;right:auto;top:6px;bottom:6px;width:2px;height:auto;background:linear-gradient(180deg,var(--ambfill),var(--line))}.tl .card:before{top:22px;left:-29px}}
+  /* calculator */
+  .calc{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:18px}
+  @media(max-width:780px){.calc{grid-template-columns:1fr}}
+  .calc label{display:block;font-size:.88rem;color:var(--mut);margin:.2em 0 .9em}
+  .calc input{display:block;width:100%;margin-top:.35em;background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:.6em .8em;font:inherit;font-size:1rem}
+  .calc input:focus{outline:2px solid var(--amb);outline-offset:1px}
+  .calc .out b{font-family:Sora;font-size:1.5rem;color:var(--amb)}
+  .calc .out .row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:.55em 0}
+  .calc ul{margin:.8em 0 0;padding-left:1.1em;color:var(--mut);font-size:.9rem}
+  .note{border-left:3px solid var(--ambfill);background:var(--ambsoft);padding:12px 16px;border-radius:0 10px 10px 0;font-size:.92rem;margin:18px 0 0;max-width:74ch}
+  .src{font-size:.8rem;color:var(--mut);margin-top:14px}
+  figure.ill{margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  figure.ill img{width:100%;display:block}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🛡️</span> sobreviver-ia</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#horizontes">3 horizons</a>
+    <a class="sec" href="#dados">Data</a>
+    <a class="sec" href="#guia">Tools</a>
+    <a class="sec" href="#plano">Plan</a>
+    <span class="lang"><a href="../">PT</a><a class="on" href="./">EN</a><a href="../es/">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+    <a class="btn" href="https://github.com/inematds/sobreviver-ia" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Local kit · no API key · v1.0.0</span>
+      <h1>How to protect yourself over the next 2 years of <span class="amb">AI</span></h1>
+      <p class="lead">Three risk horizons, one kit for each: a prepared home, locked-down accounts, measured work and a 90-day plan.</p>
+      <div class="cta">
+        <a class="btn" href="#guia">Start the guide</a>
+        <a class="btn ghost" href="https://github.com/inematds/sobreviver-ia" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-en.jpg" alt="Banner: Survive AI — the next 2 years in 3 horizons: security, income and identity"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">In short</span>
+  <p>sobreviver-ia is a set of simple tools that run on your own computer, to get through the next two years of AI with fewer surprises. It is for any person or family: it works out the food, water and cash for a 14-day kit, installs an AI and Wikipedia offline, shows which of your accounts still depend on SMS and measures, with tasks from your own work, how much AI already does for you. All you need is Python 3 (and, if you want the offline AI, disk space). Nothing uses an API key.</p>
+</div></section>
+
+<section id="video"><div class="wrap">
+  <span class="chip">Video</span>
+  <h2>Watch the explainer</h2>
+  <p class="sub">The project explained in a few minutes.</p>
+  <div style="position:relative;width:min(360px,100%);aspect-ratio:9/16;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--line,#272730)"><iframe src="https://www.youtube.com/embed/bgVHDEm1yGI" title="Watch the explainer" style="position:absolute;inset:0;width:100%;height:100%;border:0" loading="lazy" allowfullscreen></iframe></div>
+</div></section>
+
+
+<section id="horizontes"><div class="wrap">
+  <span class="chip">What it is</span>
+  <h2>Three risk horizons</h2>
+  <p class="sub">The risk does not arrive all at once. In the short term it is about security; in the medium term, work and income; in the long term, beliefs and identity. Each horizon has its own part of the repository.</p>
+  <figure class="ill"><img src="../assets/banner-grade-en.jpg" alt="Banner with the 6 kit items: 14-day kit, Offline AI, MFA not SMS, Personal eval, Own something, People" loading="lazy"></figure>
+  <div class="tl">
+    <div class="card"><span class="when">Now · weeks</span><h3>🏠 Short term: security</h3><p>Attacks on internet-connected systems are getting cheaper and more common. Prepare your home for a few days without the usual services and move your accounts off SMS.</p>
+      <ul><li><code>kit/</code> food, water, cash</li><li><code>offline/</code> AI and Wikipedia without internet</li><li><code>seguranca/</code> MFA and audit</li></ul></div>
+    <div class="card"><span class="when">Next 2 years</span><h3>💼 Medium term: work and income</h3><p>Entry-level jobs in the most exposed roles are already shrinking. Use AI for everything, measure how much of your work it does, own something, build distribution and move closer to the physical world.</p>
+      <ul><li><code>eval/</code> your personal eval + scoreboard</li><li><code>plano/</code> weeks 1–8</li></ul></div>
+    <div class="card"><span class="when">Decade</span><h3>🧭 Long term: identity</h3><p>If you are your job title, every AI advance hurts like a threat. Define yourself by character, review your beliefs, keep an open mind and invest in people.</p>
+      <ul><li><code>plano/</code> weeks 9–13</li></ul></div>
+  </div>
+</div></section>
+
+<section id="dados"><div class="wrap">
+  <span class="chip">Why now · data</span>
+  <h2>What already happened in 2026</h2>
+  <p class="sub">Four verified facts show the three horizons are not theory.</p>
+  <div class="stats">
+    <div class="stat"><b>19%</b><span>less employment for 22–25-year-olds in the roles most exposed to AI</span><small>cumulative gap vs. less exposed roles · Stanford, Aug 2026</small></div>
+    <div class="stat"><b>350+</b><span>supermarkets in France had their fridges heated up by an attack</span><small>up to ~50 °C · Oct 11, 2026 · Reuters</small></div>
+    <div class="stat"><b>Jul '26</b><span>models under safety testing escaped the sandbox and broke into part of Hugging Face</span><small>disclosed Jul 16–21, report on Aug 26</small></div>
+    <div class="stat"><b>50–100</b><span>years of biology progress compressed into 5–10</span><small>Dario Amodei, "Machines of Loving Grace", 2024</small></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="chart">
+      <h3>Employment of 22–25-year-olds in the roles most exposed to AI</h3>
+      <p class="cap">How far below it fell, relative to the less exposed roles. Each bar is a version of the study, not a year: the number is cumulative.</p>
+      <svg viewBox="0 0 560 270" role="img" aria-label="Cumulative employment gap for 22 to 25-year-olds: 13% in the first version, 15% in the second, 19% in the August 2026 update">
+        <g stroke="var(--line)" stroke-width="1">
+          <line x1="60" x2="540" y1="220" y2="220"/><line x1="60" x2="540" y1="184" y2="184"/><line x1="60" x2="540" y1="148" y2="148"/><line x1="60" x2="540" y1="112" y2="112"/><line x1="60" x2="540" y1="76" y2="76"/><line x1="60" x2="540" y1="40" y2="40"/>
+        </g>
+        <g fill="var(--mut)" font-size="12" text-anchor="end">
+          <text x="52" y="224">0%</text><text x="52" y="188">−5%</text><text x="52" y="152">−10%</text><text x="52" y="116">−15%</text><text x="52" y="80">−20%</text><text x="52" y="44">−25%</text>
+        </g>
+        <g class="hit"><title>1st version of the study: −13%</title><path class="bar" fill="var(--old)" d="M100,220 V130.4 Q100,126.4 104,126.4 H192 Q196,126.4 196,130.4 V220 Z"/></g>
+        <g class="hit"><title>2nd version of the study: −15%</title><path class="bar" fill="var(--old)" d="M250,220 V116 Q250,112 254,112 H342 Q346,112 346,116 V220 Z"/></g>
+        <g class="hit"><title>Aug 2026 update: −19%</title><path class="bar" fill="var(--ambfill)" d="M400,220 V87.2 Q400,83.2 404,83.2 H492 Q496,83.2 496,87.2 V220 Z"/></g>
+        <g fill="var(--txt)" font-size="15" font-weight="700" text-anchor="middle">
+          <text x="148" y="116">−13%</text><text x="298" y="102">−15%</text><text x="448" y="73">−19%</text>
+        </g>
+        <g fill="var(--mut)" font-size="12" text-anchor="middle">
+          <text x="148" y="242">1st version</text><text x="298" y="242">2nd version</text><text x="448" y="242">Aug 2026</text>
+        </g>
+      </svg>
+      <details class="tab"><summary>View as table</summary><table><tr><th>Study version</th><th>Cumulative gap</th></tr><tr><td>1st version</td><td>−13%</td></tr><tr><td>2nd version</td><td>−15%</td></tr><tr><td>Aug 2026 update</td><td>−19%</td></tr></table></details>
+    </div>
+    <div class="chart">
+      <h3>What this means</h3>
+      <p class="cap">The effect comes through hiring, not mass layoffs.</p>
+      <ul style="color:var(--mut);font-size:.95rem;padding-left:1.1em;margin:.6em 0 0">
+        <li>Most exposed roles: writing documents, reports, accounting, customer service, video and text production.</li>
+        <li>Fewer new people enter these roles; those who are already senior stay and review the AI's work.</li>
+        <li>It is not "19% per year": it is the cumulative gap up to August 2026, which grew from one version of the study to the next.</li>
+        <li>In France, the refrigeration controllers were on the internet with weak passwords: a simple attack turned into physical damage in hundreds of stores.</li>
+      </ul>
+      <p class="note">In practice: the first rung of the career ladder is getting narrower, and physical systems depend on digital passwords. Both call for preparation now.</p>
+    </div>
+  </div>
+  <p class="src">Sources: Stanford Digital Economy Lab, "Canaries in the Coal Mine" (Aug 2026 update); Reuters (France, Oct 11, 2026; other sources say 500–700 stores); public report of the July 2026 incident; Dario Amodei, "Machines of Loving Grace" (2024).</p>
+</div></section>
+
+<section id="kit"><div class="wrap">
+  <span class="chip">Short term · 14-day kit</span>
+  <h2>How much your home needs</h2>
+  <p class="sub">Basis: 2,000 kcal per person per day and 1.5 to 2 liters of drinking water per person per day, for 14 days. The cash is one month of your spending. Play with the numbers.</p>
+  <div class="calc">
+    <div class="card">
+      <label>People in the household<input id="kp" type="number" min="1" max="20" value="2"></label>
+      <label>Days<input id="kd" type="number" min="1" max="90" value="14"></label>
+      <label>Monthly household spending ($)<input id="kg" type="number" min="0" step="100" value="4500"></label>
+    </div>
+    <div class="card out" aria-live="polite">
+      <div class="row"><span>Calories</span><b id="okc">56,000 kcal</b></div>
+      <div class="row"><span>Drinking water</span><b id="oag">42–56 L</b></div>
+      <div class="row"><span>5 L jugs</span><b id="oga">12</b></div>
+      <div class="row"><span>Cash</span><b id="odi">$ 4,500</b></div>
+      <ul id="olista"></ul>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="chart">
+      <h3>Calories for 14 days, by household size</h3>
+      <p class="cap">Thousand kcal · 2,000 kcal/person/day</p>
+      <svg viewBox="0 0 360 240" role="img" aria-label="Calories for 14 days: 1 person 28 thousand, 2 people 56 thousand, 3 people 84 thousand, 4 people 112 thousand, 5 people 140 thousand">
+        <line x1="24" x2="350" y1="200" y2="200" stroke="var(--line)"/>
+        <g class="hit"><title>1 person: 28,000 kcal</title><path class="bar" fill="var(--ambfill)" d="M40,200 V174 Q40,170 44,170 H80 Q84,170 84,174 V200 Z"/></g>
+        <g class="hit"><title>2 people: 56,000 kcal</title><path class="bar" fill="var(--ambfill)" d="M102,200 V144 Q102,140 106,140 H142 Q146,140 146,144 V200 Z"/></g>
+        <g class="hit"><title>3 people: 84,000 kcal</title><path class="bar" fill="var(--ambfill)" d="M164,200 V114 Q164,110 168,110 H204 Q208,110 208,114 V200 Z"/></g>
+        <g class="hit"><title>4 people: 112,000 kcal</title><path class="bar" fill="var(--ambfill)" d="M226,200 V84 Q226,80 230,80 H266 Q270,80 270,84 V200 Z"/></g>
+        <g class="hit"><title>5 people: 140,000 kcal</title><path class="bar" fill="var(--ambfill)" d="M288,200 V54 Q288,50 292,50 H328 Q332,50 332,54 V200 Z"/></g>
+        <g fill="var(--txt)" font-size="13" font-weight="600" text-anchor="middle"><text x="62" y="162">28</text><text x="124" y="132">56</text><text x="186" y="102">84</text><text x="248" y="72">112</text><text x="310" y="42">140</text></g>
+        <g fill="var(--mut)" font-size="12" text-anchor="middle"><text x="62" y="220">1</text><text x="124" y="220">2</text><text x="186" y="220">3</text><text x="248" y="220">4</text><text x="310" y="220">5</text><text x="186" y="236">people</text></g>
+      </svg>
+      <details class="tab"><summary>View as table</summary><table><tr><th>People</th><th>kcal (14 days)</th></tr><tr><td>1</td><td>28,000</td></tr><tr><td>2</td><td>56,000</td></tr><tr><td>3</td><td>84,000</td></tr><tr><td>4</td><td>112,000</td></tr><tr><td>5</td><td>140,000</td></tr></table></details>
+    </div>
+    <div class="chart">
+      <h3>Drinking water for 14 days</h3>
+      <p class="cap">Liters · range from 1.5 L (mark) to 2 L (bar) per person/day</p>
+      <svg viewBox="0 0 360 240" role="img" aria-label="Water for 14 days: 1 person 21 to 28 liters, 2 people 42 to 56, 3 people 63 to 84, 4 people 84 to 112, 5 people 105 to 140">
+        <line x1="24" x2="350" y1="200" y2="200" stroke="var(--line)"/>
+        <g class="hit"><title>1 person: 21–28 L</title><path class="bar" fill="var(--mut)" d="M40,200 V174 Q40,170 44,170 H80 Q84,170 84,174 V200 Z"/><line x1="40" x2="84" y1="177.5" y2="177.5" stroke="var(--card)" stroke-width="2"/></g>
+        <g class="hit"><title>2 people: 42–56 L</title><path class="bar" fill="var(--mut)" d="M102,200 V144 Q102,140 106,140 H142 Q146,140 146,144 V200 Z"/><line x1="102" x2="146" y1="155" y2="155" stroke="var(--card)" stroke-width="2"/></g>
+        <g class="hit"><title>3 people: 63–84 L</title><path class="bar" fill="var(--mut)" d="M164,200 V114 Q164,110 168,110 H204 Q208,110 208,114 V200 Z"/><line x1="164" x2="208" y1="132.5" y2="132.5" stroke="var(--card)" stroke-width="2"/></g>
+        <g class="hit"><title>4 people: 84–112 L</title><path class="bar" fill="var(--mut)" d="M226,200 V84 Q226,80 230,80 H266 Q270,80 270,84 V200 Z"/><line x1="226" x2="270" y1="110" y2="110" stroke="var(--card)" stroke-width="2"/></g>
+        <g class="hit"><title>5 people: 105–140 L</title><path class="bar" fill="var(--mut)" d="M288,200 V54 Q288,50 292,50 H328 Q332,50 332,54 V200 Z"/><line x1="288" x2="332" y1="87.5" y2="87.5" stroke="var(--card)" stroke-width="2"/></g>
+        <g fill="var(--txt)" font-size="12" font-weight="600" text-anchor="middle"><text x="62" y="162">21–28</text><text x="124" y="132">42–56</text><text x="186" y="102">63–84</text><text x="248" y="72">84–112</text><text x="310" y="42">105–140</text></g>
+        <g fill="var(--mut)" font-size="12" text-anchor="middle"><text x="62" y="220">1</text><text x="124" y="220">2</text><text x="186" y="220">3</text><text x="248" y="220">4</text><text x="310" y="220">5</text><text x="186" y="236">people</text></g>
+      </svg>
+      <details class="tab"><summary>View as table</summary><table><tr><th>People</th><th>Liters (14 days)</th></tr><tr><td>1</td><td>21–28</td></tr><tr><td>2</td><td>42–56</td></tr><tr><td>3</td><td>63–84</td></tr><tr><td>4</td><td>84–112</td></tr><tr><td>5</td><td>105–140</td></tr></table></details>
+    </div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">How it works</span>
+  <h2>One Saturday for the short term, 90 days for the rest</h2>
+  <p class="sub">Everything runs on your computer. Suggested order:</p>
+  <div class="flow">
+    <span>14-day kit</span><span class="arr">→</span>
+    <span>Offline AI + Wikipedia</span><span class="arr">→</span>
+    <span>MFA without SMS</span><span class="arr">→</span>
+    <span>Personal eval</span><span class="arr">→</span>
+    <span>Scoreboard with every new model</span><span class="arr">→</span>
+    <span>90-day plan</span>
+  </div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Prerequisites</span>
+  <h2>What you need</h2>
+  <p class="sub">Only the first one is required.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Python 3.9+</h3><p>For the kit, audit and eval tools. No extra libraries (matplotlib is optional, only for the scoreboard PNG).</p><pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/sobreviver-ia</span>
+<span class="k">cd</span> sobreviver-ia</pre></div>
+    <div class="card"><h3>Disk space</h3><p>For the offline AI: 2 to 5 GB for the model + from 2.5 GB (Wikipedia pt "mini") to 110 GB (en "maxi"). The script shows the total first.</p><pre><span class="k">df -h</span> ~   <span class="c"># how much is left</span></pre></div>
+    <div class="card"><h3>Optional: Ollama</h3><p>To run the eval on a local model. For cloud models, use Claude Code, Codex or the chat you already subscribe to.</p><pre><span class="k">ollama</span> list  <span class="c"># already have it?</span></pre></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">User guide · step by step</span>
+  <h2>The tools, one by one</h2>
+  <p class="sub">Real commands, ready to copy. Run them from the repository folder.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Calculate and build your household kit</h3>
+    <p>Calories, liters of water, jugs, cash and the shopping list of non-perishables. With <code>--markdown</code> you get a checklist ready to print. The full checklist (first aid, fire extinguisher, flashlight, radio, power bank) is in <code>kit/checklist-casa.md</code> (in Portuguese). The tools print their output in Portuguese.</p>
+<pre><span class="k">python3 kit/calcula_kit.py</span> --pessoas 2 --dias 14 --gasto-mensal 4500
+<span class="c"># Calories: 56,000 kcal · Water: 42 to 56 liters (~12 jugs of 5 L) · Cash: R$ 4,500</span>
+<span class="k">python3 kit/calcula_kit.py</span> --pessoas 4 --markdown > meu-kit.md</pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Install the AI and Wikipedia offline (Linux and macOS)</h3>
+    <p>The default is <strong>dry-run</strong>: it shows what it would do and how much space it takes, without downloading anything. Choose the model (<code>llama3.2:3b</code>, <code>qwen2.5:7b</code>…), the languages and the Wikipedia type: <code>mini</code> (article summaries), <code>nopic</code> (full text without pictures) or <code>maxi</code> (with pictures).</p>
+<pre><span class="k">bash offline/instala-offline.sh</span> --modelo qwen2.5:7b --wiki pt,en --tipo nopic
+<span class="c"># [1] Ollama + model qwen2.5:7b (~4.7 GB)
+# [2] Kiwix + Wikipedia pt/nopic ~9 GB, en/nopic ~55 GB
+# Approximate total space: ~68.7 GB</span>
+<span class="k">bash offline/instala-offline.sh</span> --modelo qwen2.5:7b --wiki pt --tipo nopic --instalar
+<span class="k">kiwix-serve</span> --port 8088 ~/offline/wikipedia_pt_all_nopic_*.zim  <span class="c"># → http://localhost:8088</span></pre>
+    <p><strong>Windows:</strong> install Ollama with the installer from <a href="https://ollama.com/download/windows" target="_blank" rel="noopener">ollama.com/download/windows</a> (or <code>winget install Ollama.Ollama</code>) and run <code>ollama pull llama3.2:3b</code> in Command Prompt. Install Kiwix Desktop from <a href="https://kiwix.org/en/applications/" target="_blank" rel="noopener">kiwix.org/applications</a> and download the <code>wikipedia_pt_all_nopic_…zim</code> file from <a href="https://download.kiwix.org/zim/wikipedia/" target="_blank" rel="noopener">download.kiwix.org/zim/wikipedia</a>; open the .zim in Kiwix.</p>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Move your accounts off SMS</h3>
+    <p>Create the accounts spreadsheet (just the name, never the password), mark each one's method (senha, sms, email, app, chave — password, SMS, email, app, key) and get the list of what to migrate first. The step-by-step for each account is in <code>seguranca/checklist-mfa.md</code> (in Portuguese).</p>
+<pre><span class="k">python3 seguranca/auditoria_contas.py</span> --modelo contas.csv      <span class="c"># template spreadsheet</span>
+<span class="k">python3 seguranca/auditoria_contas.py</span> --interativo contas.csv  <span class="c"># or ask account by account</span>
+<span class="k">python3 seguranca/auditoria_contas.py</span> contas.csv --saida relatorio.md
+<span class="c"># Accounts: 7 · With authenticator app or passkey: 1 (14%) · Still on SMS: 4
+# 1 | Main email | email | SMS (weak) | replace SMS with an authenticator app or passkey; save codes…</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Build your personal eval</h3>
+    <p>An eval is a set of 10 to 15 real tasks from your day, always the same ones, with the context files and a criterion for what counts as "done". Each task is a folder: <code>eval/tarefas/NN-nome/</code> with <code>tarefa.md</code>, <code>contexto/</code> and <code>criterio.md</code>. It ships with 3 examples (in Portuguese): summarizing a meeting, organizing the month's expenses and replying to an angry customer.</p>
+<pre>eval/tarefas/
+├── 01-resumir-reuniao/   tarefa.md · contexto/reuniao.txt · criterio.md
+├── 02-planilha-gastos/   tarefa.md · contexto/extrato.csv · criterio.md
+└── 03-email-cliente/     tarefa.md · contexto/email.txt, politica.md · criterio.md</pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Run the eval with every new model</h3>
+    <p>By default the script generates a package for you to paste into Claude Code, Codex or the chat you already subscribe to. With <code>--ollama</code> it runs directly on a local model. It never calls a paid API and refuses addresses that are not on your machine.</p>
+<pre><span class="k">python3 eval/rodar.py</span> --modelo claude-novo     <span class="c"># generates eval/saida/&lt;data&gt;-claude-novo/pacote.md</span>
+<span class="k">python3 eval/rodar.py</span> --ollama qwen2.5:7b      <span class="c"># runs on local Ollama (localhost:11434)</span>
+<span class="c"># then: read each answer against criterio.md and give the score (0, 0.5 or 1) in notas.csv</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Track the scoreboard</h3>
+    <p>Each round becomes a line in <code>eval/placar.csv</code>. The chart shows how the percentage of your work that AI already does evolves. Only you know this number, because it comes from your tasks.</p>
+<pre><span class="k">python3 eval/placar.py</span> registrar eval/saida/2026-10-19-qwen2.5-7b/notas.csv
+<span class="k">python3 eval/placar.py</span> ver
+<span class="k">python3 eval/placar.py</span> grafico   <span class="c"># eval/placar.svg (+ .png if you have matplotlib)</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">7</div><div>
+    <h3>Follow the 90-day plan</h3>
+    <p><code>plano/plano-90-dias.md</code> (in Portuguese) has a week 0 for the short term and 13 weeks with exercises: own something, build distribution, move closer to the physical world, identity by character, belief review, open mind and people. On day 90, run the eval again and compare.</p>
+<pre><span class="k">python3 -m pytest</span> -q   <span class="c"># 22 tests for the tools</span></pre>
+  </div></div>
+</div></section>
+
+<section id="plano"><div class="wrap">
+  <span class="chip">Medium and long term · plan</span>
+  <h2>90 days, week by week</h2>
+  <p class="sub">Summary of <code>plano/plano-90-dias.md</code> (in Portuguese). This is not financial advice; adjust it to where you are.</p>
+  <div class="phase"><div class="tag">Week 0</div><div class="d"><strong>The short term in one Saturday</strong><span>14-day kit, offline AI installed, your 3 most important accounts off SMS.</span></div></div>
+  <div class="phase"><div class="tag">Wk 1–2</div><div class="d"><strong>Use AI for everything and build the eval</strong><span>10 to 15 real tasks from your work; the first score on the scoreboard. Don't rely on other people's opinions about what AI can do: measure it.</span></div></div>
+  <div class="phase"><div class="tag">Wk 3–5</div><div class="d"><strong>Own something</strong><span>AI makes work cheaper; what becomes valuable is what is yours: a business, product, clients, assets. Build the minimum version of something of your own.</span></div></div>
+  <div class="phase"><div class="tag">Wk 6–8</div><div class="d"><strong>Build distribution and move closer to the physical</strong><span>An audience, a list and a community go with you if your job changes. Work with a physical presence tends to last longer.</span></div></div>
+  <div class="phase"><div class="tag">Wk 9–10</div><div class="d"><strong>Identity by character, not by job title</strong><span>"I am someone who…" without naming a company or a title.</span></div></div>
+  <div class="phase"><div class="tag">Wk 11–12</div><div class="d"><strong>Review beliefs and keep an open mind</strong><span>Which of your beliefs depend on the world before AI?</span></div></div>
+  <div class="phase"><div class="tag">Wk 13</div><div class="d"><strong>Invest in people</strong><span>Neighbors by name, contacts reconnected, one get-together a month. In any scenario, people with strong relationships do better.</span></div></div>
+  <div class="phase"><div class="tag">Day 90</div><div class="d"><strong>Review</strong><span>Eval again on the newest model, distribution recounted, kit and MFA reviewed.</span></div></div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Python 3</div><div class="pill">Bash</div><div class="pill">Ollama</div><div class="pill">Kiwix</div><div class="pill">MIT</div>
+    <p style="margin-top:18px">sobreviver-ia v1.0.0 · all local, no API key ·
+      <a href="https://github.com/inematds/sobreviver-ia">inematds/sobreviver-ia</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='sobreviver-ia-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+  (function(){
+    // same basket as kit/calcula_kit.py: [name, kcal per unit, share of calories]
+    var CESTA=[["Rice (1 kg bag)",3600,.25],["Pasta (500 g)",1750,.15],["Beans/lentils (1 kg)",3300,.10],["Peanut butter (500 g)",2950,.12],["Oats (500 g)",1900,.08],["Tuna/sardines (can)",250,.08],["Powdered milk (400 g)",2000,.08],["Cooking oil (900 ml)",7900,.06],["Crackers (400 g)",1800,.08]];
+    var LOC='en-US', MOEDA='$ ';
+    function n(id,min,max){var v=parseFloat(document.getElementById(id).value);if(isNaN(v))v=min;return Math.min(max,Math.max(min,v));}
+    function f(x){return x.toLocaleString(LOC,{maximumFractionDigits:1});}
+    function calcular(){
+      var p=Math.round(n('kp',1,20)), d=Math.round(n('kd',1,90)), g=n('kg',0,1e7);
+      var kcal=p*d*2000, amin=p*d*1.5, amax=p*d*2;
+      document.getElementById('okc').textContent=f(kcal)+' kcal';
+      document.getElementById('oag').textContent=f(amin)+'–'+f(amax)+' L';
+      document.getElementById('oga').textContent=Math.ceil(amax/5);
+      document.getElementById('odi').textContent=MOEDA+g.toLocaleString(LOC,{maximumFractionDigits:0});
+      var ul=document.getElementById('olista'); ul.innerHTML='';
+      CESTA.forEach(function(c){var li=document.createElement('li');li.textContent=Math.ceil(kcal*c[2]/c[1])+' × '+c[0];ul.appendChild(li);});
+    }
+    ['kp','kd','kg'].forEach(function(id){document.getElementById(id).addEventListener('input',calcular);});
+    calcular();
+  })();
+</script>
+</body>
+</html>

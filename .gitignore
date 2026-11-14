@@ -1,0 +1,9 @@
+__pycache__/
+.pytest_cache/
+eval/saida/
+eval/placar.csv
+eval/placar.svg
+eval/placar.png
+contas.csv
+relatorio.md
+meu-kit.md
